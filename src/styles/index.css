@@ -1,0 +1,17 @@
+/*登录页*/
+.form_wapper .el-form-item__label {
+  color: #fff;
+
+}
+
+/*自定义菜单宽度、背景色*/
+#app .el-submenu .el-menu-item,
+#app .nest-menu .el-submenu>.el-submenu__title {
+  min-width: 180px !important;
+  background-color: #1f2d3d !important;
+}
+
+#app .el-submenu .el-menu-item:hover,
+#app .nest-menu .el-submenu>.el-submenu__title:hover {
+  background-color: #001528 !important;
+}
