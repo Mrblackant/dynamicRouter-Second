@@ -44,7 +44,8 @@ export const permissionRouter = [{
       // redirect: '/example/table/table1',
       meta: {
         title: "table案例",
-        icon: "el-icon-goods"
+        icon: "el-icon-goods",
+        roles: ['admin','user']
       },
       // 三级菜单写法，对应demotable案例下边的两个菜单
       children: [{
