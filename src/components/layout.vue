@@ -44,16 +44,9 @@ export default {
   },
   methods: {
     outSystem() { //退出系统
-      localStorage.setItem("userRole",'unload')
-      window.location.href="/"
+      localStorage.setItem("userRole", 'unload')
+      window.location.href = "/"
     },
-    roleChange() {
-      // 角色改变，重定向到首页，模拟用户登录时的路由跳转，这样beforeEach就能捕获到
-      // localStorage.setItem("role", this.userRole)
-      this.$router.push({
-        path: '/main'
-      })
-    }
   },
   mounted() {
     // console.log("菜单的展开跟路由有关系，查看elementui--el-menu  的default-active 属性")

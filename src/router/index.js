@@ -4,30 +4,33 @@ const layout = () => import('@/components/layout')
 // 登录页
 const reload = () => import('@/components/reLoad')
 
-// 首页
 const main = () => import('@/views/index')
 const table = () => import('@/views/example/table/index')
 const tree = () => import('@/views/example/tree')
 const tableFirst = () => import('@/views/example/table/tableFirst')
 const tableSecond = () => import('@/views/example/table/tableSecond')
 Vue.use(Router)
+// 固定的路由表
 export const fixedRouter = [{
     path: '',
     component: reload,
     hidden: true
   },
   {
-    // 一级菜单写法,对应demo首页
     path: '',
-    // name: 'layout',
-    component: layout,
+    component: layout, //整体页面的布局(包含左侧菜单跟主内容区域)
     children: [{
       path: 'main',
       component: main,
-      meta: { title: '首页', roles: ['user', 'admin'], icon: 'el-icon-info' }
+      meta: {
+        title: '首页', //菜单名称
+        roles: ['user', 'admin'], //当前菜单哪些角色可以看到
+        icon: 'el-icon-info' //菜单左侧的icon图标
+      }
     }]
   },
 ]
+// 需要权限判断展示的路由
 export const permissionRouter = [{
   path: "/example",
   component: layout,
@@ -41,11 +44,10 @@ export const permissionRouter = [{
       path: "/example/table",
       name: "Table",
       component: table,
-      // redirect: '/example/table/table1',
       meta: {
         title: "table案例",
         icon: "el-icon-goods",
-        roles: ['admin','user']
+        roles: ['admin']
       },
       // 三级菜单写法，对应demotable案例下边的两个菜单
       children: [{
@@ -55,7 +57,7 @@ export const permissionRouter = [{
           meta: {
             title: "table1",
             icon: "el-icon-mobile-phone",
-            roles: ['admin','user']
+            roles: ['admin']
 
           }
         },
