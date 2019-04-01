@@ -8,7 +8,7 @@ router.beforeEach((to, from, next) => {
   let GetRole = localStorage.getItem("userRole")
 
   // 如果登录了
-  if (GetRole !== 'unload') {
+  if (GetRole&&GetRole !== 'unload') {
     next() //next()方法后的代码也会执行
     // 1.如果路由表 没根据角色进行筛选,就筛选一次
     if (!addRouFlag) {
