@@ -6,7 +6,15 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    proxyTable: {
+      '/api': {
+        target: '192.168.8.83:80/', //接口域名 
+        changeOrigin: true, //是否跨域
+        pathRewrite: {
+          '^api': '' //需要rewrite重写的
+        }
+      }
+    },
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -20,7 +28,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
